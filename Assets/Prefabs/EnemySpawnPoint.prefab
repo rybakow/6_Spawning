@@ -99,4 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToSpawn: 2
   _enemyPrefab: {fileID: 874199834839955933, guid: 3f351a61d1f74af4782cb19813219556, type: 3}
-  _target: {fileID: 4162324892734603845, guid: e325cd43d2155374e824a44c4c9c5e31, type: 3}
+  _TARGET: {fileID: 7503804185741658926, guid: e325cd43d2155374e824a44c4c9c5e31, type: 3}

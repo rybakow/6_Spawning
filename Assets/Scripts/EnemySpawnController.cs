@@ -13,6 +13,7 @@ public class EnemySpawnController : MonoBehaviour
     
     private void Awake()
     {
+        _target = FindObjectOfType<AttackedPoint>().gameObject.transform;
         StartCoroutine(Spawn());
     }
 
@@ -20,8 +21,6 @@ public class EnemySpawnController : MonoBehaviour
     {
         while (true)
         {
-            _target = FindObjectOfType<AttackedPoint>().gameObject.transform;
-            
             Enemy newEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.SetTarget(_target);
 
