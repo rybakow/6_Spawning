@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         Move();
-        ActionDestination();
+        OnArrival();
     }
 
     private void Move()
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
     }
 
-    private void ActionDestination()
+    private void OnArrival()
     {
         if (transform.position == _target)
             Destroy(this.gameObject);
