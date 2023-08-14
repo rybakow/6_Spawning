@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed;
     
     private Vector3 _target;
-
+    
     public void SetTarget(Transform target)
     {
         _target = new Vector3(target.position.x, target.position.y, target.position.z);

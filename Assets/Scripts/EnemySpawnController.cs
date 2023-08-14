@@ -1,31 +1,36 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawnController : MonoBehaviour
 {
     [SerializeField] private float _timeToSpawn;
     [SerializeField] private Enemy _enemyPrefab;
+
+    private bool _timedOut;
     
     private Transform _target;
-
-    private float _actualTime = 0f;
     
-    private void Update()
+    private void Awake()
     {
-        SpawnEnemy();
+        StartCoroutine(Spawn());
     }
 
-    private void SpawnEnemy()
+    private IEnumerator Spawn()
     {
-        _actualTime += Time.deltaTime;
-        
-        if (_actualTime >= _timeToSpawn)
+        while (true)
         {
             _target = FindObjectOfType<AttackedPoint>().gameObject.transform;
             
             Enemy newEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.SetTarget(_target);
-            
-            _actualTime = 0f;
+
+            yield return new WaitForSeconds(_timeToSpawn);
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopCoroutine(Spawn());
     }
 }
