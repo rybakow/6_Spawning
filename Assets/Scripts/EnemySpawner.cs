@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnemySpawnController : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float _timeToSpawn;
     [SerializeField] private Enemy _enemyPrefab;
